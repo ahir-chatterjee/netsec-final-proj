@@ -211,8 +211,8 @@ config("pdfium_common_config") {
 
   if (is_clang) {
     # Override -Wno-c++11-narrowing.
-    cflags += [ "-Wc++11-narrowing" ]
-
+    cflags += [ "-Wc++11-narrowing", "-Wc++17-extensions", "-Wno-error"]
+    cflags_cc = [ "-std=c++17", "-Wextra-semi", "-Wshadow"]
     # TODO(crbug.com/1213098): Remove once this is in //build.
     cflags += [ "-Wdeprecated-copy" ]
 
